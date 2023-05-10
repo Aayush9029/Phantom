@@ -11,6 +11,10 @@
 		451B3DCA2A0B548D00596226 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451B3DC92A0B548D00596226 /* ContentView.swift */; };
 		451B3DCC2A0B548E00596226 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 451B3DCB2A0B548E00596226 /* Assets.xcassets */; };
 		451B3DCF2A0B548E00596226 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 451B3DCE2A0B548E00596226 /* Preview Assets.xcassets */; };
+		451B3DD82A0B54E000596226 /* Defaults in Frameworks */ = {isa = PBXBuildFile; productRef = 451B3DD72A0B54E000596226 /* Defaults */; };
+		451B3DDA2A0B591300596226 /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451B3DD92A0B591300596226 /* View+Extension.swift */; };
+		451B3DDC2A0B6B9500596226 /* StatusBarVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451B3DDB2A0B6B9500596226 /* StatusBarVM.swift */; };
+		451B3DDE2A0B810F00596226 /* MenuInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451B3DDD2A0B810F00596226 /* MenuInfo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +24,9 @@
 		451B3DCB2A0B548E00596226 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		451B3DCE2A0B548E00596226 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		451B3DD02A0B548E00596226 /* Phantom.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Phantom.entitlements; sourceTree = "<group>"; };
+		451B3DD92A0B591300596226 /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
+		451B3DDB2A0B6B9500596226 /* StatusBarVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusBarVM.swift; sourceTree = "<group>"; };
+		451B3DDD2A0B810F00596226 /* MenuInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuInfo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -27,6 +34,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				451B3DD82A0B54E000596226 /* Defaults in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -54,6 +62,9 @@
 			children = (
 				451B3DC72A0B548D00596226 /* PhantomApp.swift */,
 				451B3DC92A0B548D00596226 /* ContentView.swift */,
+				451B3DE02A0B866D00596226 /* ViewModels */,
+				451B3DDF2A0B866800596226 /* Models */,
+				451B3DE12A0B868A00596226 /* Extensions */,
 				451B3DCB2A0B548E00596226 /* Assets.xcassets */,
 				451B3DD02A0B548E00596226 /* Phantom.entitlements */,
 				451B3DCD2A0B548E00596226 /* Preview Content */,
@@ -67,6 +78,30 @@
 				451B3DCE2A0B548E00596226 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		451B3DDF2A0B866800596226 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				451B3DDD2A0B810F00596226 /* MenuInfo.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		451B3DE02A0B866D00596226 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				451B3DDB2A0B6B9500596226 /* StatusBarVM.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		451B3DE12A0B868A00596226 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				451B3DD92A0B591300596226 /* View+Extension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -85,6 +120,9 @@
 			dependencies = (
 			);
 			name = Phantom;
+			packageProductDependencies = (
+				451B3DD72A0B54E000596226 /* Defaults */,
+			);
 			productName = Phantom;
 			productReference = 451B3DC42A0B548D00596226 /* Phantom.app */;
 			productType = "com.apple.product-type.application";
@@ -113,6 +151,9 @@
 				Base,
 			);
 			mainGroup = 451B3DBB2A0B548D00596226;
+			packageReferences = (
+				451B3DD62A0B54E000596226 /* XCRemoteSwiftPackageReference "Defaults" */,
+			);
 			productRefGroup = 451B3DC52A0B548D00596226 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -140,6 +181,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				451B3DCA2A0B548D00596226 /* ContentView.swift in Sources */,
+				451B3DDC2A0B6B9500596226 /* StatusBarVM.swift in Sources */,
+				451B3DDE2A0B810F00596226 /* MenuInfo.swift in Sources */,
+				451B3DDA2A0B591300596226 /* View+Extension.swift in Sources */,
 				451B3DC82A0B548D00596226 /* PhantomApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -336,6 +380,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		451B3DD62A0B54E000596226 /* XCRemoteSwiftPackageReference "Defaults" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sindresorhus/Defaults";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		451B3DD72A0B54E000596226 /* Defaults */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 451B3DD62A0B54E000596226 /* XCRemoteSwiftPackageReference "Defaults" */;
+			productName = Defaults;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 451B3DBC2A0B548D00596226 /* Project object */;
 }

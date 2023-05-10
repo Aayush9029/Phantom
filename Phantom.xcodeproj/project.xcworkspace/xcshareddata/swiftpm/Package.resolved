@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "defaults",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/sindresorhus/Defaults",
+      "state" : {
+        "branch" : "main",
+        "revision" : "488ff7dd719cf18a347dcab00078483f28ee52f8"
+      }
+    }
+  ],
+  "version" : 2
+}

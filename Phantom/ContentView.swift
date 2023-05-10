@@ -16,6 +16,8 @@ struct ContentView: View {
             Text("Hello, world!")
         }
         .padding()
+        .background(VisualEffectBlur(material: .hudWindow, blendingMode: .behindWindow))
+        .ignoresSafeArea()
     }
 }
 

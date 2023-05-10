@@ -9,15 +9,17 @@ import SwiftUI
 
 @main
 struct PhantomApp: App {
-    @StateObject var menuController: MenuBarController = .init()
     var body: some Scene {
         WindowGroup {
-            ContentView()
+//            ContentView()
         }
         .windowStyle(.hiddenTitleBar)
 
-        MenuBarExtra {} label: {
+        MenuBarExtra {
+            ContentView()
+        } label: {
             Label("YO", systemImage: "chevron.up")
         }
+        .menuBarExtraStyle(.window)
     }
 }

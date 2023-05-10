@@ -8,7 +8,7 @@
 import AppKit
 import SwiftUI
 
-class StatusBarVM {
+class StatusBarVM: ObservableObject {
     @Published var menuApps: [NSRunningApplication] = []
 
     init() {
@@ -16,7 +16,7 @@ class StatusBarVM {
     }
 
     var menuList: [MenuInfo] {
-        let systemApps = ["SystemUIServer", "Control Center", "Window Server"]
+        let systemApps = ["SystemUIServer", "Control Center", "Window Server", "Phantom"]
         let options = CGWindowListOption(arrayLiteral: .excludeDesktopElements, .optionOnScreenOnly)
         guard let infoList = CGWindowListCopyWindowInfo(options, CGWindowID(0)) as? [[String: Any]]
         else { return [] }

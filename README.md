@@ -1,6 +1,6 @@
 > **Warning** : Work In Progress, Phantom is currently in design phase and not yet ready for development. Check back later, contributions are welcome.
 
-
+As of now, all other apps, like Hidden Bar and Venus, use a transparent menubar icon with an extremely large max width to "hide/unhide" icons, which feels too hacky, even for me. I'll work on the app once I figure out a way to make it operate without such a workaround. (Or when I change my mind.)
 
 <p align="center">
   <img src="https://github.com/Aayush9029/Phantom/assets/43297314/f0d41521-3613-4dfb-ba7c-37dcb03d949d" height="128">

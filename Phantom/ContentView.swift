@@ -8,8 +8,9 @@
 import SwiftUI
 
 struct ContentView: View {
-    @StateObject var statusVM: StatusBarVM = .init()
-    let columns: [GridItem] = [.init(.adaptive(minimum: 64, maximum: 256))]
+    @StateObject private var statusVM = StatusBarVM()
+    private let columns: [GridItem] = [.init(.adaptive(minimum: 64, maximum: 256))]
+
     var body: some View {
         ScrollView {
             LazyVGrid(columns: columns) {
@@ -20,9 +21,8 @@ struct ContentView: View {
             Spacer()
         }
         .padding()
-
         .onAppear {
-            print(statusVM.menuApps)
+            statusVM.contentAppeared()
         }
     }
 }

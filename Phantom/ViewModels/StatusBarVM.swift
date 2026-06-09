@@ -6,30 +6,39 @@
 //
 
 import AppKit
-import SwiftUI
+import Combine
 
-class StatusBarVM: ObservableObject {
+@MainActor
+final class StatusBarVM: ObservableObject {
     @Published var menuApps: [NSRunningApplication] = []
+
+    private static let systemApps = Set([
+        "SystemUIServer",
+        "Control Center",
+        "Window Server",
+        "Phantom",
+    ])
 
     init() {
         refreshApplications()
     }
 
-    var menuList: [MenuInfo] {
-        let systemApps = ["SystemUIServer", "Control Center", "Window Server", "Phantom"]
-        let options = CGWindowListOption(arrayLiteral: .excludeDesktopElements, .optionOnScreenOnly)
-        guard let infoList = CGWindowListCopyWindowInfo(options, CGWindowID(0)) as? [[String: Any]]
-        else { return [] }
-        let systemExcluded = infoList.filter { !systemApps.contains($0["kCGWindowOwnerName"] as? String ?? "") }
-        let nonMenuExcluded = systemExcluded.filter {
-            let boundsDict = $0[kCGWindowBounds as String] as! CFDictionary
-            if let bounds = CGRect(dictionaryRepresentation: boundsDict), bounds.origin.y == 0 { return true }
-            return false
-        }
-        return nonMenuExcluded.map { MenuInfo(dictionary: $0)! }
+    func contentAppeared() {
+        refreshApplications()
     }
 
-    func refreshApplications() {
+    var menuList: [MenuInfo] {
+        let options = CGWindowListOption(arrayLiteral: .excludeDesktopElements, .optionOnScreenOnly)
+        guard let infoList = CGWindowListCopyWindowInfo(options, CGWindowID(0)) as? [[String: Any]] else {
+            return []
+        }
+
+        return infoList
+            .compactMap(MenuInfo.init(dictionary:))
+            .filter { !Self.systemApps.contains($0.ownerName) && $0.bounds.origin.y == 0 }
+    }
+
+    private func refreshApplications() {
         menuApps = menuList.map {
             NSRunningApplication(processIdentifier: pid_t($0.ownerPID)) ?? NSRunningApplication()
         }
